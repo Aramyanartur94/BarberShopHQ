@@ -37,6 +37,10 @@ get '/contacts' do
 	erb :contacts
 end
 
+get '/barber/:id' do
+	erb :barber
+end
+
 post '/visit' do
 	#@username = params[:username]
 	#@phone = params[:phone]
