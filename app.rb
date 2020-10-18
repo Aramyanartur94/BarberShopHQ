@@ -33,22 +33,26 @@ get '/contacts' do
 end
 
 post '/visit' do
-	@username = params[:username]
-	@phone = params[:phone]
-	@datetime = params[:datetime]
-	@barber = params[:barber]
-	@color = params[:color]
+	#@username = params[:username]
+	#@phone = params[:phone]
+	#@datetime = params[:datetime]
+	#@barber = params[:barber]
+	#@color = params[:color]
 	
-	# Первый вариант
+	# Первый вариант (ламерский)
 	# Client.create :name => @username, :phone => @phone, :datestamp => @datetime, :barber => @barber, :color => @color
 	
-	# Второй вариант
-	c = Client.new
-	c.name = @username
-	c.phone = @phone
-	c.datestamp = @datetime
-	c.barber = @barber
-	c.color = @color
+	# Второй вариант (ламерский)
+	#c = Client.new
+	#c.name = @username
+	#c.phone = @phone
+	#c.datestamp = @datetime
+	#c.barber = @barber
+	#c.color = @color
+	#c.save
+
+	#Сохранение в базу (ПРАВИЛЬНЫЙ СПОСОБ) 
+	c = Client.new params[:client]
 	c.save
 
 erb "<h2>Спасибо, что записались!</h2>"
