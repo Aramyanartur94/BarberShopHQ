@@ -38,7 +38,18 @@ post '/visit' do
 	@datetime = params[:datetime]
 	@barber = params[:barber]
 	@color = params[:color]
-	Client.create :name => @username, :phone => @phone, :datestamp => @datetime, :barber => @barber, :color => @color
+	
+	# Первый вариант
+	# Client.create :name => @username, :phone => @phone, :datestamp => @datetime, :barber => @barber, :color => @color
+	
+	# Второй вариант
+	c = Client.new
+	c.name = @username
+	c.phone = @phone
+	c.datestamp = @datetime
+	c.barber = @barber
+	c.color = @color
+	c.save
 
 erb "<h2>Спасибо, что записались!</h2>"
 end
