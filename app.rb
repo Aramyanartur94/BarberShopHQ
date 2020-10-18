@@ -57,9 +57,11 @@ post '/visit' do
 
 	#Сохранение в базу (ПРАВИЛЬНЫЙ СПОСОБ) 
 	c = Client.new params[:client]
-	c.save
-
-erb "<h2>Спасибо, что записались!</h2>"
+	if c.save
+		erb "<h2>Спасибо, что записались!</h2>"
+	else
+		erb "Ошибка"
+	end
 end
 
 post '/contacts' do
