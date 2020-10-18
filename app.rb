@@ -22,6 +22,7 @@ end
 
 before do
 	@barbers = Barber.all
+	@client = Client.all
 end
 
 get '/' do
@@ -45,6 +46,11 @@ end
 get '/bookings' do
 	@clients = Client.order('created_at DESC') 
 	erb :bookings
+end
+
+get '/clients/:id' do
+	@client = Client.find(params[:id])
+	erb :client
 end
 
 post '/visit' do
