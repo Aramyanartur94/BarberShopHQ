@@ -74,12 +74,15 @@ post '/visit' do
 
 	#Сохранение в базу (ПРАВИЛЬНЫЙ СПОСОБ) 
 	@c = Client.new params[:client]
+	
 	if @c.save
 		erb "<h2>Спасибо, что записались!</h2>"
 	else
 		@error = @c.errors.full_messages.first
 		erb :visit
 	end
+
+	
 end
 
 post '/contacts' do
